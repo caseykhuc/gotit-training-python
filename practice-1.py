@@ -27,8 +27,11 @@ def convert(s):
     regex = re.compile(r'^I completed (.*?) sessions and I rated my expert (.*?) stars$')
     number_of_sessions, number_of_stars = regex.match(inp).groups()
 
-    return convert_stars(convert_sessions(s, number_of_sessions), number_of_stars)
+    s = convert_sessions(s, number_of_sessions)
+    s = convert_stars(s, number_of_stars)
+    return s
 
 
-inp = 'I completed 2 sessions and I rated my expert five stars'
-print(convert(inp))
+if __name__ == "__main__":
+    inp = 'I completed 2 sessions and I rated my expert five stars'
+    print(convert(inp))
