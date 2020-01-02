@@ -1,5 +1,5 @@
-"""update dictionary by a dictionary"""
 def update(current, changes):
+    """Update current dict by changes dict"""
     if type(changes) == list:
         for i in range(len(changes)):
             update(current[i], changes[i])
@@ -14,12 +14,18 @@ def update(current, changes):
         return
 
 
-""" Class model entities for data """
 class StorefrontConfig:
-    # __init__(data: object)
+    """Class model entities for data
+
+    Attributes:
+        data: string
+    """
+
     def __init__(self, data):
+        """Init class with data"""
         self.data = data
 
     # update(modify_data: object)
     def update(self, modify_data):
+        """Update"""
         update(self.data, modify_data)

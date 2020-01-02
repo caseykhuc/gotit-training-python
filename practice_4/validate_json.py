@@ -1,27 +1,29 @@
 import re
 
-# delete_trailing_comma(str): str
-def delete_trailing_comma(str):
+
+# delete_trailing_comma(string): str
+def delete_trailing_comma(string):
+    """Return json-like string without any trailing commas"""
     quote = False
     regex = re.compile(r''',(?!\s*[{["'])''')
 
     # list of all trailing commas
-    commas = [i.start() for i in regex.finditer(str)]
+    commas = [i.start() for i in regex.finditer(string)]
 
     # list of commas to delete
-    result_str = ""
+    result_string = ""
 
-    # loop through str to avoid commas in the middle of string value
-    for i, char in enumerate(str):
+    # loop through string to avoid commas in the middle of stringing value
+    for i, char in enumerate(string):
         if char == '"':
-            if i > 0 and str[i-1] == '\\':
-                result_str += char
+            if i > 0 and string[i-1] == '\\':
+                result_string += char
                 continue
             quote = not quote
 
         # char is outside of any quotes
         if not quote and i in commas:
             continue
-        result_str += char
+        result_string += char
 
-    return result_str
+    return result_string

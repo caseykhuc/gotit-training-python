@@ -1,5 +1,5 @@
-from modify_data import modify_data
-from file_controller import FileController
+from practice_4.modify_data import modify_data
+from practice_4.file_controller import FileController
 
 if __name__ == "__main__":
     file_controller = FileController()
