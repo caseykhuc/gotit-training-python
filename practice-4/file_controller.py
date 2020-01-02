@@ -1,13 +1,18 @@
 import json
 from storefront_config import StorefrontConfig
+from validate_json import delete_trailing_comma
 
+# handle read and write from file
+class FileController:
+    def __init__(self):
+        pass
 
-class FileController():
     # read_file(file_name: string): StorefrontConfig
     @staticmethod
     def read_file(file_name):
-        content = json.loads(open(file_name).read())
-        return StorefrontConfig(content)
+        file_content = open(file_name).read()
+        file_content = json.loads(delete_trailing_comma(file_content))
+        return StorefrontConfig(file_content)
 
     # write_file(object: StorefrontConfig, file_name: string)
     @staticmethod
