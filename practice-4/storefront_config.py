@@ -1,6 +1,5 @@
+"""update dictionary by a dictionary"""
 def update(current, changes):
-    # update dictionary by a dictionary
-
     if type(changes) == list:
         for i in range(len(changes)):
             update(current[i], changes[i])

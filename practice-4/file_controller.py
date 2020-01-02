@@ -2,7 +2,7 @@ import json
 from storefront_config import StorefrontConfig
 from validate_json import delete_trailing_comma
 
-# handle read and write from file
+""" Handle read and write json from/to file """
 class FileController:
     def __init__(self):
         pass

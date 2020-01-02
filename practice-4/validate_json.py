@@ -25,6 +25,3 @@ def delete_trailing_comma(str):
         result_str += char
 
     return result_str
-
-if __name__ == "__main__":
-    delete_trailing_comma(open('data.json').read())
