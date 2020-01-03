@@ -1,7 +1,6 @@
 import re
 
 
-# delete_trailing_comma(string): str
 def delete_trailing_comma(string):
     """Return json-like string without any trailing commas"""
     quote = False

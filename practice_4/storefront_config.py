@@ -1,7 +1,9 @@
 def update(current, changes):
     """Update current dict by changes dict"""
+
     if type(changes) == list:
         for i in range(len(changes)):
+            # recursively update each element if changes/current is a list of list/dictionary
             update(current[i], changes[i])
         return
     if type(current) == dict:
@@ -25,7 +27,12 @@ class StorefrontConfig:
         """Init class with data"""
         self.data = data
 
-    # update(modify_data: object)
     def update(self, modify_data):
         """Update"""
         update(self.data, modify_data)
+
+
+if __name__ == "__main__":
+    store = StorefrontConfig({"id": 300})
+    store.update({"id": 200})
+    print(store.data)
